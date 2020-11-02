@@ -16,30 +16,21 @@
 				"zh-cn": "首次出版"
 			}
 		},
-		"title": "Template (TypeScript)",
+		"title": "Gaia",
 		"titleLang": {
-			"en": "Template (TypeScript)",
-			"de": "Vorlage (TypeScript)",
-			"ru": "Шаблон (TypeScript)",
-			"pt": "Modelo (TypeScript)",
-			"nl": "Sjabloon (TypeScript)",
-			"fr": "Modèle (TypeScript)",
-			"it": "Modello (TypeScript)",
-			"es": "Plantilla (TypeScript)",
-			"pl": "Szablon (TypeScript)",
-			"zh-cn": "模板（TypeScript）"
+			"en": "Gaia",
+			"de": "Gaia",
+			"ru": "Gaia",
+			"pt": "Gaia",
+			"nl": "Gaia",
+			"fr": "Gaia",
+			"it": "Gaia",
+			"es": "Gaia",
+			"pl": "Gaia"
 		},
 		"desc": {
-			"en": "Template for adapter development",
-			"de": "Vorlage für die Adapterentwicklung",
-			"ru": "Шаблон для разработки адаптера",
-			"pt": "Modelo para desenvolvimento de adaptador",
-			"nl": "Sjabloon voor adapterontwikkeling",
-			"fr": "Modèle de développement d'adaptateur",
-			"it": "Modello per lo sviluppo dell'adattatore",
-			"es": "Plantilla para el desarrollo de adaptadores",
-			"pl": "Szablon do tworzenia adapterów",
-			"zh-cn": "适配器开发的模板"
+			"en": "Adapter for Gaia",
+			"de": "Adapter für Gaia"
 		},
 		"authors": [
 			"Author <hello@marcel-henning.de>"
@@ -55,8 +46,8 @@
 		"main": "build/main.js",
 		"icon": "template.png",
 		"enabled": true,
-		"extIcon": "https://raw.githubusercontent.com/Author/ioBroker.template/master/admin/template.png",
-		"readme": "https://github.com/Author/ioBroker.template/blob/master/README.md",
+		"extIcon": "https://github.com/pigtastic/ioBroker.gaia/tree/main/admin/icon.png",
+		"readme": "https://github.com/pigtastic/ioBroker.gaia/blob/main/README.md",
 		"loglevel": "info",
 		"mode": "daemon",
 		"type": "general",
@@ -66,16 +57,15 @@
 		"adminTab": {
 			"singleton": true,
 			"name": {
-				"en": "Template (TypeScript)",
-				"de": "Vorlage (TypeScript)",
-				"ru": "Шаблон (TypeScript)",
-				"pt": "Modelo (TypeScript)",
-				"nl": "Sjabloon (TypeScript)",
-				"fr": "Modèle (TypeScript)",
-				"it": "Modello (TypeScript)",
-				"es": "Plantilla (TypeScript)",
-				"pl": "Szablon (TypeScript)",
-				"zh-cn": "模板（TypeScript）"
+				"en": "Gaia",
+				"de": "Gaia",
+				"ru": "Gaia",
+				"pt": "Gaia",
+				"nl": "Gaia",
+				"fr": "Gaia",
+				"it": "Gaia",
+				"es": "Gaia",
+				"pl": "Gaia"
 			},
 			"link": "",
 			"fa-icon": "info"
