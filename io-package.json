@@ -1,6 +1,6 @@
 {
 	"common": {
-		"name": "template",
+		"name": "gaia",
 		"version": "0.0.1",
 		"news": {
 			"0.0.1": {
@@ -16,19 +16,6 @@
 				"zh-cn": "首次出版"
 			}
 		},
-		"title": "Template (TypeScript)",
-		"titleLang": {
-			"en": "Template (TypeScript)",
-			"de": "Vorlage (TypeScript)",
-			"ru": "Шаблон (TypeScript)",
-			"pt": "Modelo (TypeScript)",
-			"nl": "Sjabloon (TypeScript)",
-			"fr": "Modèle (TypeScript)",
-			"it": "Modello (TypeScript)",
-			"es": "Plantilla (TypeScript)",
-			"pl": "Szablon (TypeScript)",
-			"zh-cn": "模板（TypeScript）"
-		},
 		"desc": {
 			"en": "Template for adapter development",
 			"de": "Vorlage für die Adapterentwicklung",
@@ -42,7 +29,7 @@
 			"zh-cn": "适配器开发的模板"
 		},
 		"authors": [
-			"Author <author@mail.com>"
+			"Author <hello@marcel-henning.de>"
 		],
 		"keywords": [
 			"ioBroker",
