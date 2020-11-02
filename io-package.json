@@ -44,7 +44,7 @@
 		"license": "MIT",
 		"platform": "Javascript/Node.js",
 		"main": "build/main.js",
-		"icon": "template.png",
+		"icon": "icon.png",
 		"enabled": true,
 		"extIcon": "https://github.com/pigtastic/ioBroker.gaia/tree/main/admin/icon.png",
 		"readme": "https://github.com/pigtastic/ioBroker.gaia/blob/main/README.md",
