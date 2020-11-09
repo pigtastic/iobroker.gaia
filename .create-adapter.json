@@ -21,7 +21,7 @@
 	],
 	"adminReact": "no",
 	"language": "TypeScript",
-	"title": "Template (TypeScript)",
+	"title": "Gaia",
 	"tools": [
 		"ESLint",
 		"code coverage"

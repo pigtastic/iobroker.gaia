@@ -83,7 +83,7 @@
     "instrument": true
   },
   "bugs": {
-    "url": "https://github.com/Author/ioBroker.template/issues"
+    "url": "https://github.com/pigtastic/ioBroker.gaia/issues"
   },
   "readmeFilename": "README.md"
 }

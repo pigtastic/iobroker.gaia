@@ -15,9 +15,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require("@iobroker/adapter-core");
-class Template extends utils.Adapter {
+class Gaia extends utils.Adapter {
     constructor(options = {}) {
-        super(Object.assign(Object.assign({}, options), { name: "template" }));
+        super(Object.assign(Object.assign({}, options), { name: "gaia" }));
         this.on("ready", this.onReady.bind(this));
         this.on("stateChange", this.onStateChange.bind(this));
         // this.on("objectChange", this.onObjectChange.bind(this));
@@ -120,9 +120,9 @@ class Template extends utils.Adapter {
 }
 if (module.parent) {
     // Export the constructor in compact mode
-    module.exports = (options) => new Template(options);
+    module.exports = (options) => new Gaia(options);
 }
 else {
     // otherwise start the instance directly
-    (() => new Template())();
+    (() => new Gaia())();
 }

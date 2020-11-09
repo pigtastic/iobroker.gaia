@@ -24,12 +24,12 @@ declare global {
 	}
 }
 
-class Template extends utils.Adapter {
+class Gaia extends utils.Adapter {
 
 	public constructor(options: Partial<utils.AdapterOptions> = {}) {
 		super({
 			...options,
-			name: "template",
+			name: "gaia",
 		});
 		this.on("ready", this.onReady.bind(this));
 		this.on("stateChange", this.onStateChange.bind(this));
@@ -161,8 +161,8 @@ class Template extends utils.Adapter {
 
 if (module.parent) {
 	// Export the constructor in compact mode
-	module.exports = (options: Partial<utils.AdapterOptions> | undefined) => new Template(options);
+	module.exports = (options: Partial<utils.AdapterOptions> | undefined) => new Gaia(options);
 } else {
 	// otherwise start the instance directly
-	(() => new Template())();
+	(() => new Gaia())();
 }
