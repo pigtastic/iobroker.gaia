@@ -6,8 +6,7 @@
 // you need to create an adapter
 import * as utils from "@iobroker/adapter-core";
 
-const adapter = new utils.Adapter('gaia');
-
+import { gaiaGroups } from "./lib/gaiaGroups";
 // Load your modules here, e.g.:
 // import * as fs from "fs";
 
@@ -88,7 +87,7 @@ class Gaia extends utils.Adapter {
 		})
 
 		// In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
-		this.subscribeStates("testVariable");
+		this.subscribeStates("*");
 		// You can also add a subscription for multiple states. The following line watches all states starting with "lights."
 		// this.subscribeStates("lights.*");
 		// Or, if you really must, you can also watch all states. Don't do this if you don't need to. Otherwise this will cause a lot of unnecessary load on the system:
