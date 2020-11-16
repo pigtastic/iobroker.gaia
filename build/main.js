@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require("@iobroker/adapter-core");
+const adapter = new utils.Adapter('gaia');
 class Gaia extends utils.Adapter {
     constructor(options = {}) {
         super(Object.assign(Object.assign({}, options), { name: "gaia" }));
@@ -50,14 +51,15 @@ class Gaia extends utils.Adapter {
                 },
                 native: {},
             });
-            this.setForeignObject("gaia.lights", {
-                type: "enum",
+            this.setForeignObject("enum.functions.gaia", {
+                _id: "enum.functions.gaia",
                 common: {
                     name: "gaia.lights",
+                    members: []
                 },
                 native: {},
+                type: "enum",
             });
-            this.log.info("functions");
             // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
             this.subscribeStates("testVariable");
             // You can also add a subscription for multiple states. The following line watches all states starting with "lights."
