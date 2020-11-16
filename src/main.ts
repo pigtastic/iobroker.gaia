@@ -71,6 +71,15 @@ class Gaia extends utils.Adapter {
 		this.setForeignObject("enum.gaia", {
 			_id: "enum.functions.gaia",
 			common: {
+				name: "gaia",
+				members: []
+			},
+			native: {},
+			type: "enum",
+		})
+		this.setForeignObject("enum.gaia.lights", {
+			_id: "enum.functions.gaia",
+			common: {
 				name: "gaia.lights",
 				members: []
 			},
