@@ -164,7 +164,9 @@ class Gaia extends utils.Adapter {
 	// }
 
 	private addGaiaGroups(): void {
+		this.log.info("addGaiaGroupsFunction called")
 		gaiaCategories.forEach(categorie => {
+			this.log.debug(categorie)
 			this.getForeignObject("enum.functions.gaia." + categorie, (err, oObjects) => {
 				if (oObjects) {
 					this.log.info("vorhanden")
