@@ -73,6 +73,8 @@ class Gaia extends utils.Adapter {
             this.log.info("check user admin pw iobroker: " + result);
             result = yield this.checkGroupAsync("admin", "admin");
             this.log.info("check group user admin group admin: " + result);
+            //Init gaia functions
+            this.addGaiaGroups();
         });
     }
     /**
