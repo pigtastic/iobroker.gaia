@@ -141,7 +141,7 @@ class Gaia extends utils.Adapter {
             this.log.debug(categorie);
             this.getForeignObject("enum.functions.gaia." + categorie, (err, oObjects) => {
                 if (oObjects) {
-                    this.log.info("vorhanden");
+                    this.log.info(oObjects._id);
                 }
                 if (!oObjects) {
                     this.setForeignObject("enum.functions.gaia." + categorie, {
