@@ -6,7 +6,7 @@
 // you need to create an adapter
 import * as utils from "@iobroker/adapter-core";
 
-import { gaiaGroups } from "./lib/gaiaGroups";
+import { gaiaCategories } from "./lib/gaiaCategories";
 // Load your modules here, e.g.:
 // import * as fs from "fs";
 
@@ -67,24 +67,7 @@ class Gaia extends utils.Adapter {
 			native: {},
 		});
 
-		this.setForeignObject("enum.gaia", {
-			_id: "enum.functions.gaia",
-			common: {
-				name: "gaia",
-				members: []
-			},
-			native: {},
-			type: "enum",
-		})
-		this.setForeignObject("enum.gaia.lights", {
-			_id: "enum.functions.gaia",
-			common: {
-				name: "gaia.lights",
-				members: []
-			},
-			native: {},
-			type: "enum",
-		})
+
 
 		// In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
 		this.subscribeStates("*");
@@ -98,14 +81,14 @@ class Gaia extends utils.Adapter {
 			you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
 		*/
 		// the variable testVariable is set to true as command (ack=false)
-		await this.setStateAsync("testVariable", true);
+		// await this.setStateAsync("testVariable", true);
 
 		// same thing, but the value is flagged "ack"
 		// ack should be always set to true if the value is received from or acknowledged from the target system
-		await this.setStateAsync("testVariable", { val: true, ack: true });
+		// await this.setStateAsync("testVariable", { val: true, ack: true });
 
 		// same thing, but the state is deleted after 30s (getState will return null afterwards)
-		await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
+		// await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
 
 		// examples for the checkPassword/checkGroup functions
 		let result = await this.checkPasswordAsync("admin", "iobroker");
@@ -177,6 +160,26 @@ class Gaia extends utils.Adapter {
 	// 	}
 	// }
 
+	private addGaiaGroups(): void {
+		gaiaCategories.forEach(categorie => {
+			this.getForeignObject("enum.functions.gaia." + categorie, (err, oObjects) => {
+				if (oObjects) {
+					this.log.info("vorhanden")
+				}
+				if (!oObjects) {
+					this.setForeignObject("enum.functions.gaia." + categorie, {
+						_id: "enum.functions.gaia." + categorie,
+						common: {
+							name: "gaia." + categorie,
+							members: []
+						},
+						native: {},
+						type: "enum",
+					});
+				}
+			});
+		});
+	}
 }
 
 if (module.parent) {

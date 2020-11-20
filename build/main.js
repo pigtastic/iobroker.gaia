@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 // The adapter-core module gives you access to the core ioBroker functions
 // you need to create an adapter
 const utils = require("@iobroker/adapter-core");
+const gaiaCategories_1 = require("./lib/gaiaCategories");
 class Gaia extends utils.Adapter {
     constructor(options = {}) {
         super(Object.assign(Object.assign({}, options), { name: "gaia" }));
@@ -50,24 +51,6 @@ class Gaia extends utils.Adapter {
                 },
                 native: {},
             });
-            this.setForeignObject("enum.gaia", {
-                _id: "enum.functions.gaia",
-                common: {
-                    name: "gaia",
-                    members: []
-                },
-                native: {},
-                type: "enum",
-            });
-            this.setForeignObject("enum.gaia.lights", {
-                _id: "enum.functions.gaia",
-                common: {
-                    name: "gaia.lights",
-                    members: []
-                },
-                native: {},
-                type: "enum",
-            });
             // In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
             this.subscribeStates("*");
             // You can also add a subscription for multiple states. The following line watches all states starting with "lights."
@@ -79,12 +62,12 @@ class Gaia extends utils.Adapter {
                 you will notice that each setState will cause the stateChange event to fire (because of above subscribeStates cmd)
             */
             // the variable testVariable is set to true as command (ack=false)
-            yield this.setStateAsync("testVariable", true);
+            // await this.setStateAsync("testVariable", true);
             // same thing, but the value is flagged "ack"
             // ack should be always set to true if the value is received from or acknowledged from the target system
-            yield this.setStateAsync("testVariable", { val: true, ack: true });
+            // await this.setStateAsync("testVariable", { val: true, ack: true });
             // same thing, but the state is deleted after 30s (getState will return null afterwards)
-            yield this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
+            // await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
             // examples for the checkPassword/checkGroup functions
             let result = yield this.checkPasswordAsync("admin", "iobroker");
             this.log.info("check user admin pw iobroker: " + result);
@@ -134,6 +117,41 @@ class Gaia extends utils.Adapter {
             // The state was deleted
             this.log.info(`state ${id} deleted`);
         }
+    }
+    // If you need to accept messages in your adapter, uncomment the following block and the corresponding line in the constructor.
+    // /**
+    //  * Some message was sent to this instance over message box. Used by email, pushover, text2speech, ...
+    //  * Using this method requires "common.message" property to be set to true in io-package.json
+    //  */
+    // private onMessage(obj: ioBroker.Message): void {
+    // 	if (typeof obj === "object" && obj.message) {
+    // 		if (obj.command === "send") {
+    // 			// e.g. send email or pushover or whatever
+    // 			this.log.info("send command");
+    // 			// Send response in callback if required
+    // 			if (obj.callback) this.sendTo(obj.from, obj.command, "Message received", obj.callback);
+    // 		}
+    // 	}
+    // }
+    addGaiaGroups() {
+        gaiaCategories_1.gaiaCategories.forEach(categorie => {
+            this.getForeignObject("enum.functions.gaia." + categorie, (err, oObjects) => {
+                if (oObjects) {
+                    this.log.info("vorhanden");
+                }
+                if (!oObjects) {
+                    this.setForeignObject("enum.functions.gaia." + categorie, {
+                        _id: "enum.functions.gaia." + categorie,
+                        common: {
+                            name: "gaia." + categorie,
+                            members: []
+                        },
+                        native: {},
+                        type: "enum",
+                    });
+                }
+            });
+        });
     }
 }
 if (module.parent) {
