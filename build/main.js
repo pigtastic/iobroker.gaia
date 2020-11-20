@@ -144,7 +144,7 @@ class Gaia extends utils.Adapter {
                         common: {
                             name: "gaia." + categorie,
                             members: [],
-                            icon: "https://media.istockphoto.com/vectors/online-marketing-testing-icon-element-of-online-marketing-icon-vector-id1142772182"
+                            icon: "http://simpleicon.com/wp-content/uploads/rocket.svg"
                         },
                         native: {},
                         type: "enum",
