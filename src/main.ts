@@ -164,19 +164,15 @@ class Gaia extends utils.Adapter {
 	// }
 
 	private addGaiaGroups(): void {
-		this.log.info("addGaiaGroupsFunction called")
 		gaiaCategories.forEach(categorie => {
-			this.log.debug(categorie)
 			this.getForeignObject("enum.functions.gaia." + categorie, (err, oObjects) => {
-				if (oObjects) {
-					this.log.info(oObjects._id)
-				}
-				if (!oObjects) {
+				if (!oObjects?.common) {
 					this.setForeignObject("enum.functions.gaia." + categorie, {
 						_id: "enum.functions.gaia." + categorie,
 						common: {
 							name: "gaia." + categorie,
-							members: []
+							members: [],
+							icon: "https://media.istockphoto.com/vectors/online-marketing-testing-icon-element-of-online-marketing-icon-vector-id1142772182"
 						},
 						native: {},
 						type: "enum",
