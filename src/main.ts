@@ -97,6 +97,8 @@ class Gaia extends utils.Adapter {
 		result = await this.checkGroupAsync("admin", "admin");
 		this.log.info("check group user admin group admin: " + result);
 
+		this.log.info("test");
+
 		//Init gaia functions
 		this.addGaiaGroups();
 	}
@@ -172,7 +174,6 @@ class Gaia extends utils.Adapter {
 						common: {
 							name: "gaia." + categorie,
 							members: [],
-							icon: "http://simpleicon.com/wp-content/uploads/rocket.svg"
 						},
 						native: {},
 						type: "enum",
