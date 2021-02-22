@@ -100,6 +100,7 @@ class Gaia extends utils.Adapter {
     //  * Is called if a subscribed object changes
     //  */
     onObjectChange(id, obj) {
+        this.log.info("ojectchangecalled");
         if (obj) {
             // The object was changed
             this.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
