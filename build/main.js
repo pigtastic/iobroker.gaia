@@ -70,7 +70,7 @@ class Gaia extends utils.Adapter {
             // await this.setStateAsync("testVariable", { val: true, ack: true, expire: 30 });
             // examples for the checkPassword/checkGroup functions
             let result = yield this.checkPasswordAsync("admin", "iobroker");
-            this.log.info("check user BLABLA admin pw iobroker: " + result);
+            this.log.info("check user admin pw iobroker: " + result);
             result = yield this.checkGroupAsync("admin", "admin");
             this.log.info("check group user admin group admin: " + result);
             this.log.info("test");
